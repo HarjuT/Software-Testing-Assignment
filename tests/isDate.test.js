@@ -1,8 +1,8 @@
-const expect = require('chai').expect;
-const isDate = require('../isDate');
+import { expect } from "chai";
+import isDate from "../isDate.js";
 
 describe("isDate", function() {
-    it("String returns false", function() {
-        expect(isDate('asd')).to.equal(false)
+    it("should return false if the object is a String", function() {
+        expect(isDate('asd')).to.be.false
     });
 });
