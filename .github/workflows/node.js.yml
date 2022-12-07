@@ -29,14 +29,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    - name: Install coverage combiner
-      if: github.repository == 'IgniteUI/igniteui-angular' && matrix.node-version == '14.x'
-      run: sudo npm install -g istanbul-combine
-    - name: Combine scripts
-      if: github.repository == 'IgniteUI/igniteui-angular' && matrix.node-version == '14.x'
-      run: istanbul-combine -d coverage -p none -r lcov -r cobertura coverage/hierarchical-grid/coverage-final.json coverage/tree-grid/coverage-final.json coverage/non-grid/coverage-final.json coverage/grid/coverage-final.json
-    - name: Coveralls GitHub Action
-      if: github.repository == 'IgniteUI/igniteui-angular' && matrix.node-version == '14.x'
-      uses: coverallsapp/github-action@v1.1.2
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
       with:
-        github-token: ${{ github.token }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
