@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "test": "mocha test",
-    "coverage": "c8 npm run test"
+    "coverage": "c8 --reporter=lcov npm test && npx codecov"
   },
   "dependencies": {
     "c8": "^7.12.0"
